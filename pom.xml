@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.iton</groupId>
+    <artifactId>numbers</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>client</module>
+        <module>server</module>
+        <module>proto_generated</module>
+    </modules>
+
+    <properties>
+        <revision>1.0.0</revision>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <log4j-core.version>2.19.0</log4j-core.version>
+        <springframework.version>3.1.2</springframework.version>
+        <grpc-client-server.spring.boot.version>2.14.0.RELEASE</grpc-client-server.spring.boot.version>
+        <grpc-java.version>1.56.1</grpc-java.version>
+        <reactor-grpc-stub.version>1.2.4</reactor-grpc-stub.version>
+        <annotation.api.version>6.0.53</annotation.api.version>
+        <reactor.version>3.5.2</reactor.version>
+        <pgv-java-stub.version>1.0.4</pgv-java-stub.version>
+        <pgv-java-grpc.version>0.6.13</pgv-java-grpc.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-client-spring-boot-starter</artifactId>
+                <version>${grpc-client-server.spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-server-spring-boot-starter</artifactId>
+                <version>${grpc-client-server.spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>protoc-gen-grpc-java</artifactId>
+                <version>${grpc-java.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-netty-shaded</artifactId>
+                <version>${grpc-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-protobuf</artifactId>
+                <version>${grpc-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-stub</artifactId>
+                <version>${grpc-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>annotations-api</artifactId>
+                <version>${annotation.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.salesforce.servicelibs</groupId>
+                <artifactId>reactor-grpc-stub</artifactId>
+                <version>${reactor-grpc-stub.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>build.buf.protoc-gen-validate</groupId>
+                <artifactId>pgv-java-stub</artifactId>
+                <version>${pgv-java-stub.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.envoyproxy.protoc-gen-validate</groupId>
+                <artifactId>pgv-java-grpc</artifactId>
+                <version>${pgv-java-grpc.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

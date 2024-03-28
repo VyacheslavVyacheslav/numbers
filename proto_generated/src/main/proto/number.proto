@@ -1,0 +1,20 @@
+syntax = "proto3";
+import "google/protobuf/wrappers.proto";
+import "validate/validate.proto";
+
+
+
+option java_multiple_files = true;
+option java_package = "ru.iton.proto";
+option java_outer_classname = "NumberProto";
+
+// Get Numbers
+service Numbers {
+  rpc getNumbers(NumberRequest) returns (stream google.protobuf.Int32Value) {
+  }
+}
+
+message NumberRequest {
+  int32 firstValue = 1 [(validate.rules).int32= {gte: 0, lte: 30}];
+  int32 lastValue = 2 [(validate.rules).int32= {gte: 1, lte: 30}];
+}
